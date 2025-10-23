@@ -45,6 +45,47 @@
       }
     });
 
+    // Method 4: Hide "Related illustrations" containers
+    const relatedContainers = document.querySelectorAll(
+      ".promptContainer-ClL6yZ",
+    );
+    relatedContainers.forEach((container) => {
+      container.style.display = "none";
+    });
+
+    // Method 5: Hide elements with "Related illustrations" header text
+    const allElements = document.querySelectorAll("*");
+    allElements.forEach((element) => {
+      if (
+        element.textContent &&
+        element.textContent.includes("Related illustrations")
+      ) {
+        const container = element.closest(".promptContainer-ClL6yZ");
+        if (container) {
+          container.style.display = "none";
+        }
+      }
+    });
+
+    // Method 6: Hide illustration containers specifically
+    const illustrationContainers = document.querySelectorAll(
+      ".illustrationsContainer-GQIpQz",
+    );
+    illustrationContainers.forEach((container) => {
+      container.style.display = "none";
+    });
+
+    // Method 7: Hide premium vector images (illustrations)
+    const premiumVectors = document.querySelectorAll(
+      'img[src*="premium_vector"]',
+    );
+    premiumVectors.forEach((img) => {
+      const container = img.closest(".promptContainer-ClL6yZ");
+      if (container) {
+        container.style.display = "none";
+      }
+    });
+
     console.log("Unsplash Minus: Removing sponsored content");
   }
 
